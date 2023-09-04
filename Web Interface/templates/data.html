@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device_width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="refresh" content="5">
+		<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		
+		ul {
+			list-style-type: none;
+			background-color: #000;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+			border-radius: 10px;
+		}
+
+		li {
+			float: left;
+			margin-left: 10%;
+		}
+
+		li a {
+			display: block;
+			color: #ffffff;
+			padding: 5px 5px;
+			text-decoration: none;
+			text-align: center;
+			font-size: 1.2em;
+		}
+
+		.container {
+			width: 80%;
+			padding: 10px 2%;
+			margin: 10vh 10%;
+		}
+		
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td, th {
+			border: 1px solid #dedede;
+			padding: 5px;
+			text-align: left;
+		}
+		
+		tr:nth-child(odd) {
+			background-color: #ffffff;
+		}
+		
+		tr:nth-child(even) {
+			background-color: #9e9aa9;
+		}
+		h3 {
+			text-align: center;
+			margin-top: -5%;
+		}
+		</style>
+		<title> Smart Home </title>
+	</head>
+	<body>
+		<ul>
+			<li><a href="/">Smart Home Security System</a></li>
+			<li><a href="/ultrasonic_data">Ultrasonic Data</a></li>
+			<li><a href="/graph">Graph</a></li>
+		</ul>
+		<div class="container">
+			<h3>Ultrasonic Data Log</h3>
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Ultrasonic Data</th>
+					<th>Log Time</th>
+				</tr>
+				{% for datum in data %}
+					<tr>
+						<td>{{datum[0]}}</td>
+						<td>{{datum[1]}}</td>
+						<td>{{datum[2]}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>

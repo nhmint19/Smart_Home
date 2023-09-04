@@ -1,0 +1,15 @@
+create database smarthome;
+use smarthome;
+grant all privileges on smarthome.* to 'pi'@'localhost';
+create table ultrasonic (
+    id int not null auto_increment, 
+    data varchar(20) not null,
+    createdAt timestamp not null default current_timestamp, 
+    primary key (id)
+);
+create table state (
+    id int(1) not null,
+    doorlock char(1) not null,
+    primary key (id)
+);
+insert into state (id, doorlock) values (1, 0);

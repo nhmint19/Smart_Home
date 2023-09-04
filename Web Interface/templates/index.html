@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device_width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="refresh" content="5">
+		<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		
+		ul {
+			list-style-type: none;
+			background-color: #000;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+			border-radius: 10px;
+		}
+
+		li {
+			float: left;
+			margin-left: 10%;
+		}
+
+		li a {
+			display: block;
+			color: #ffffff;
+			padding: 5px 5px;
+			text-decoration: none;
+			text-align: center;
+			font-size: 1.2em;
+		}
+
+		.container {
+			width: 80%;
+			padding: 10px 2%;
+			margin: 10vh 10%;
+		}
+		
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		td {
+			border: 1px solid #dedede;
+			padding: 10px;
+			text-align: left;
+		}
+		
+		.th {
+			width: 15%;
+			font-weight: bold;
+		}	
+		
+		.button {
+			border-radius: 5px;
+			text-align: center;
+			padding: 5px 5px;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			width: 10%
+		}
+			
+		.onbtn {
+			background-color: #00ff00;
+		}
+		
+		.offbtn {
+			background-color: #ff0000;
+			margin-right: 10%;
+		}
+		</style>
+		<title> Smart Home </title>
+	</head>
+	<body>
+		<ul>
+			<li><a href="/">Smart Home Security System</a></li>
+			<li><a href="/ultrasonic_data">Ultrasonic Data</a></li>
+			<li><a href="/graph">Graph</a></li>
+		</ul>
+		<div class="container">
+			<h1>Node Controller</h1>
+			<hr/>
+			<p>
+				Use the button to set the status of the door lock 
+				and the automation feature.
+			</p>
+			<h3>Current ultrasonic value: {{ultrasonic_value}}</h3>
+			<div>
+				<table>
+					<tr>
+						<td class="th">Door Lock</td>
+						<td>
+							<a class="button onbtn" href="lock_on">On</a>
+							<a class="button offbtn" href="lock_off">Off</a>
+							{% if doorlock == '1' %}
+								<em>The door is currently <strong>Locked</strong></em>
+							{% else %}
+								<em>The door is currently <strong>Open</strong></em>
+							{% endif %}
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
